@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#160f24">
+  <meta name="description" content="Um convite especial para a minha lobinha, Victoria.">
+  <title>Um convite para a minha lobinha 🐺💗</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Press+Start+2P&display=swap');
+    :root{--night:#160f24;--night2:#24142f;--pink:#ff78bd;--pink2:#ffb9dd;--cream:#fff6fb;--lilac:#c9a6ff;--text:#40233e;--muted:#815d7c;--line:#ffd0e8}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#4a2458 0%,var(--night) 52%,#0c0a14 100%);color:var(--cream);font-family:Nunito,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:22px;overflow-x:hidden}
+    body:before,body:after{content:"";position:fixed;pointer-events:none;border-radius:50%;filter:blur(2px)}
+    body:before{width:280px;height:280px;right:-100px;top:6%;background:radial-gradient(circle,#ff78bd28,transparent 70%)}
+    body:after{width:330px;height:330px;left:-120px;bottom:0;background:radial-gradient(circle,#b88bff24,transparent 70%)}
+    .stars{position:fixed;inset:0;pointer-events:none;opacity:.65;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#ffb9dd 1px,transparent 1px);background-size:83px 83px,127px 127px;background-position:0 0,35px 55px}
+    .shell{width:min(100%,760px);position:relative;z-index:1}
+    .panel{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:clamp(22px,5vw,44px);background:linear-gradient(145deg,rgba(255,246,251,.98),rgba(255,230,244,.97));color:var(--text);border:3px solid #fff;outline:2px solid #ff78bd;box-shadow:0 0 0 8px #ff78bd18,0 20px 70px #0007;border-radius:20px;min-height:560px;justify-content:center;animation:appear .45s ease both}
+    .hidden{display:none!important}
+    .eyebrow{font:8px/1.8 'Press Start 2P',monospace;color:#a34486;letter-spacing:.4px}
+    .photo-reveal{animation:appear .8s ease both;width:100%;display:flex;justify-content:center}
+    .wolf-photo{width:min(100%,560px);aspect-ratio:16/9;object-fit:cover;border-radius:16px;border:3px solid #fff;outline:2px solid #ff78bd;box-shadow:0 12px 30px #5a214733;filter:saturate(.88)}
+    .music{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:#fff8fc;border:1px solid #f2b4d5;border-radius:14px;padding:12px 14px;width:min(100%,480px);font-size:13px;font-weight:800;color:#87416f}
+    .music a{color:#a52b75;font-weight:900}
+    .moon{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 32% 25%,#fff9fd,#ffc1e1 57%,#df70b4);box-shadow:0 0 0 7px #ffb8dc55,0 0 40px #f277bd6b;font-size:52px;position:relative}
+    .moon:after{content:"✦";position:absolute;right:-11px;top:0;color:#a775db;font-size:28px}
+    h1{font-size:clamp(23px,5.2vw,35px);line-height:1.25;color:#a52b75;margin:0;font-weight:900}
+    p{font-size:17px;line-height:1.65;margin:0;max-width:490px}
+    .pixel{font-family:'Press Start 2P',monospace;font-size:9px;line-height:1.9}
+    .btnrow{display:flex;flex-wrap:wrap;justify-content:center;gap:13px;margin-top:5px}
+    button{font:800 14px Nunito,sans-serif;border:0;border-radius:999px;padding:13px 22px;cursor:pointer;background:#d73591;color:white;box-shadow:0 5px 0 #9c286e;transition:transform .15s,filter .15s}
+    button:hover{transform:translateY(-2px);filter:brightness(1.06)}
+    button:active{transform:translateY(2px);box-shadow:0 2px 0 #9c286e}
+    button.alt{background:#fff;color:#a52b75;border:2px solid #f2a6d0;box-shadow:0 4px 0 #edb2d5}
+    button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7e3bb4;outline-offset:4px}
+    .hint{font-size:12px;color:var(--muted);min-height:18px}
+    .badge{padding:7px 12px;border:1px solid #e9a3cd;border-radius:999px;color:#a34486;font-size:12px;font-weight:900;background:#fff9fd}
+    .field{display:flex;flex-direction:column;gap:7px;text-align:left;width:min(100%,350px);font-size:13px;font-weight:900;color:#87416f}
+    input,select,textarea{font:600 15px Nunito,sans-serif;color:#40233e;background:white;border:2px solid #efb0d3;border-radius:12px;padding:12px;width:100%}
+    .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:min(100%,450px)}
+    .choices button{font-size:13px;padding:12px 9px;background:#fff;color:#a52b75;border:2px solid #f4b5d8;box-shadow:none;border-radius:13px}
+    .choices button.selected{background:#6b2e78;color:#fff;border-color:#6b2e78}
+    .letter{background:#fffdfd;border:2px dashed #e98bc0;border-radius:15px;padding:22px;text-align:left;font-size:16px;line-height:1.8;white-space:pre-line;max-width:490px;box-shadow:5px 5px 0 #f5c3df}
+    .letter strong{color:#b52c7e}
+    .signature{text-align:right;font-weight:900;color:#b52c7e;margin-top:15px}
+    .footer{font-size:11px;color:#7e5777;line-height:1.7}
+    .paw{font-size:22px;letter-spacing:5px;color:#bb70a8}
+    @keyframes appear{from{opacity:0;transform:translateY(10px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @media(max-width:440px){body{padding:13px}.panel{min-height:570px;padding:23px 16px;gap:16px}.choices{gap:8px}.choices button{font-size:12px}.moon{width:94px;height:94px;font-size:44px}.letter{padding:17px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<main class="shell">
+  <section class="panel" id="welcome">
+    <img class="wolf-photo" src="lobos.png" alt="Dois lobos brancos sentados lado a lado diante do mar sob a chuva, em uma paisagem sombria de fantasia">
+    <div class="eyebrow">BEACON HILLS • ARQUIVO CONFIDENCIAL</div>
+    <span class="badge">♡ PARA A VICTORIA ♡</span>
+    <h1>Minha lobinha…</h1>
+    <p>Tenho uma pergunta importante pra fazer. Prometo que não precisa consultar o Deaton nem esperar a próxima lua cheia pra responder. 🌕</p>
+    <div class="pixel">O DESTINO DO NOSSO EPISÓDIO ESTÁ NAS SUAS MÃOS</div>
+    <div class="btnrow"><button id="yes">ACEITO ESSE CONVITE 💗</button><button class="alt" id="no">Hmmm…</button></div>
+    <div class="hint" id="hint" aria-live="polite"></div>
+    <div class="music">🎵 Música do nosso episódio: <strong>A Thousand Years</strong><a href="https://www.youtube.com/results?search_query=Christina+Perri+A+Thousand+Years+official" target="_blank" rel="noopener noreferrer">▶ Ouvir no YouTube</a></div>
+    <div class="paw">🐾 ✦ 🐾</div>
+  </section>
+
+  <section class="panel hidden" id="yay">
+    <img class="wolf-photo" src="lobos.png" alt="Dois lobos brancos lado a lado na chuva">
+    <div class="moon" aria-hidden="true">🌕</div>
+    <div class="eyebrow">SINAL DA ALCATEIA RECEBIDO</div>
+    <h1>Victoria, você aceitou! 💗</h1>
+    <p>Nem o Scott teria conseguido disfarçar um sorriso nessa hora. Agora vamos planejar nosso pequeno episódio especial, lobinha.</p>
+    <div class="pixel">STATUS: FELICIDADE NO NÍVEL ALFA</div>
+    <button id="toDate">ESCOLHER NOSSO DIA →</button>
+  </section>
+
+  <section class="panel hidden" id="date">
+    <div class="moon" aria-hidden="true">📅</div>
+    <div class="eyebrow">CAPÍTULO 02 • O ENCONTRO</div>
+    <h1>Quando a gente vai se ver?</h1>
+    <p>Escolhe uma data e um período. O resto a gente combina sem precisar de poderes sobrenaturais.</p>
+    <label class="field">Nosso dia
+      <input type="date" id="dateInput" required>
+    </label>
+    <label class="field">Período
+      <select id="timeInput"><option value="">A gente decide depois</option><option>Manhã ☀️</option><option>Tarde 🌷</option><option>Noite 🌙</option></select>
+    </label>
+    <div class="btnrow"><button id="toPlan">PRÓXIMA PISTA →</button></div>
+  </section>
+
+  <section class="panel hidden" id="plan">
+    <div class="moon" aria-hidden="true">🖤</div>
+    <div class="eyebrow">CAPÍTULO 03 • PLANO DA ALCATEIA</div>
+    <h1>Qual vai ser a missão, lobinha?</h1>
+    <p>Escolhe quantas ideias quiser. Nenhuma delas exige lutar contra um kanima, ainda bem.</p>
+    <div class="choices">
+      <button type="button" data-choice="Tomar sorvete 🍦">SORVETE 🍦</button>
+      <button type="button" data-choice="Ir ao cinema 🎬">CINEMA 🎬</button>
+      <button type="button" data-choice="Passear no parque 🌳">PASSEIO 🌳</button>
+      <button type="button" data-choice="Comer alguma coisa 🍕">COMER 🍕</button>
+      <button type="button" data-choice="Ver o pôr do sol 🌇">PÔR DO SOL 🌇</button>
+      <button type="button" data-choice="Uma surpresa 👀">SURPRESA 👀</button>
+    </div>
+    <label class="field">Outra ideia sua (opcional)
+      <input id="other" maxlength="100" placeholder="Manda sua ideia, lobinha…">
+    </label>
+    <button id="toLetter">ABRIR A CARTINHA 💌</button>
+  </section>
+
+  <section class="panel hidden" id="letter">
+    <div class="eyebrow">UMA LEMBRANÇA PARA GUARDAR</div>
+    <div class="photo-reveal"><img class="wolf-photo" src="lobos.png" alt="Dois lobos juntos diante do mar tempestuoso"></div>
+    <div class="moon" aria-hidden="true">💌</div>
+    <div class="eyebrow">ÚLTIMO CAPÍTULO • SÓ NOSSO</div>
+    <h1>Pra você, Victoria ♡</h1>
+    <div class="letter">Victoria, minha lobinha… 🐺💗
+
+Eu queria te fazer esse convite de um jeito diferente, porque você merece um momento especial.
+
+Seja em Beacon Hills ou no nosso próprio mundinho, não precisa ter mistério, criatura sobrenatural nem drama de temporada final. Eu só quero ter a chance de passar um tempo com você, conversar, rir e criar uma lembrança boa.
+
+Talvez eu não tenha o instinto de um lobisomem pra saber sempre o que dizer, mas tive coragem de preparar isso aqui e te perguntar. Espero que a resposta seja o começo de uma história bonita. 🌙
+
+<div class="signature">Com carinho, pra minha lobinha ♡</div></div>
+    <p id="summary"></p>
+    <div class="btnrow"><button class="alt" id="restart">REVER O CONVITE ↺</button><button id="copy">COPIAR NOSSO PLANO ♡</button></div>
+    <div class="footer">Feito especialmente para a Victoria, com referências a Teen Wolf e carinho de sobra.</div>
+  </section>
+</main>
+<script>
+  const ids=['welcome','yay','date','plan','letter'];
+  function show(id){ids.forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));window.scrollTo({top:0,behavior:'smooth'});}
+  let noCount=0;
+  const no=document.getElementById('no'), hint=document.getElementById('hint');
+  no.addEventListener('click',()=>{
+    noCount++;
+    const messages=['Pensa mais um pouquinho, lobinha… 🥺','Até o Stiles diria que essa é uma boa ideia.','A lua cheia está esperando sua resposta… 🌕','Prometo que esse episódio pode ser muito fofo.'];
+    hint.textContent=messages[Math.min(noCount-1,messages.length-1)];
+    if(noCount>=3)no.textContent='Tá… talvez sim 💗';
+  });
+  document.getElementById('yes').addEventListener('click',()=>show('yay'));
+  document.getElementById('toDate').addEventListener('click',()=>show('date'));
+  document.getElementById('toPlan').addEventListener('click',()=>{
+    const date=document.getElementById('dateInput');
+    if(!date.value){date.reportValidity();date.focus();return;}
+    show('plan');
+  });
+  const picked=new Set();
+  document.querySelectorAll('[data-choice]').forEach(btn=>btn.addEventListener('click',()=>{
+    const value=btn.dataset.choice;
+    if(picked.has(value)){picked.delete(value);btn.classList.remove('selected');}
+    else{picked.add(value);btn.classList.add('selected');}
+  }));
+  document.getElementById('toLetter').addEventListener('click',()=>{
+    const raw=document.getElementById('dateInput').value;
+    const date=raw?raw.split('-').reverse().join('/'):'a combinar';
+    const time=document.getElementById('timeInput').value||'a combinar';
+    const other=document.getElementById('other').value.trim();
+    const plans=[...picked,...(other?[other]:[])];
+    document.getElementById('summary').textContent=`Plano da alcateia: ${date} • ${time}. ${plans.length?'Ideias: '+plans.join(', '):'A missão ainda será escolhida pelos dois.'}`;
+    show('letter');
+  });
+  document.getElementById('restart').addEventListener('click',()=>{
+    picked.clear();
+    document.querySelectorAll('[data-choice]').forEach(b=>b.classList.remove('selected'));
+    noCount=0;no.textContent='Hmmm…';hint.textContent='';
+    document.getElementById('dateInput').value='';
+    document.getElementById('timeInput').value='';
+    document.getElementById('other').value='';
+    show('welcome');
+  });
+  document.getElementById('copy').addEventListener('click',async()=>{
+    const text=document.getElementById('summary').textContent;
+    try{await navigator.clipboard.writeText(text);document.getElementById('copy').textContent='COPIADO! ♡';}
+    catch(e){window.prompt('Copie o plano:',text);}
+  });
+</script>
+</body>
+</html>
